@@ -1,0 +1,2 @@
+Linha 17: erro sintatico proximo a atividades
+Fim da compilacao
