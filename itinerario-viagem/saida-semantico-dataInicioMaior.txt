@@ -1,0 +1,1 @@
+Linha 2: Erro semântico: DATA_INICIO não pode ser maior que DATA_FIM

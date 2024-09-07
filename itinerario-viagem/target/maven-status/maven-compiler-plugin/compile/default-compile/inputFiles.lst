@@ -1,7 +1,12 @@
-/home/caio/Faculdade/Compiladores/t6/itinerario-viagem/target/generated-sources/antlr4/br/ufscar/dc/compiladores/itinerarioViagem/itinerarioViagem.java
+/home/caio/Faculdade/Compiladores/t6/itinerario-viagem/src/main/java/br/ufscar/dc/compiladores/itinerarioViagem/ItinerarioViagemSemantico.java
 /home/caio/Faculdade/Compiladores/t6/itinerario-viagem/target/generated-sources/antlr4/br/ufscar/dc/compiladores/itinerarioViagem/itinerarioViagemListener.java
+/home/caio/Faculdade/Compiladores/t6/itinerario-viagem/src/main/java/br/ufscar/dc/compiladores/itinerarioViagem/TabelaDeSimbolos.java
 /home/caio/Faculdade/Compiladores/t6/itinerario-viagem/src/main/java/br/ufscar/dc/compiladores/itinerarioViagem/App.java
 /home/caio/Faculdade/Compiladores/t6/itinerario-viagem/target/generated-sources/antlr4/br/ufscar/dc/compiladores/itinerarioViagem/itinerarioViagemBaseListener.java
+/home/caio/Faculdade/Compiladores/t6/itinerario-viagem/src/main/java/br/ufscar/dc/compiladores/itinerarioViagem/Escopos.java
 /home/caio/Faculdade/Compiladores/t6/itinerario-viagem/target/generated-sources/antlr4/br/ufscar/dc/compiladores/itinerarioViagem/itinerarioViagemParser.java
+/home/caio/Faculdade/Compiladores/t6/itinerario-viagem/src/main/java/br/ufscar/dc/compiladores/itinerarioViagem/ItinerarioViagemSemanticoUtils.java
+/home/caio/Faculdade/Compiladores/t6/itinerario-viagem/target/generated-sources/antlr4/br/ufscar/dc/compiladores/itinerarioViagem/itinerarioViagemBaseVisitor.java
 /home/caio/Faculdade/Compiladores/t6/itinerario-viagem/src/main/java/br/ufscar/dc/compiladores/itinerarioViagem/MyCustomErrorListener.java
 /home/caio/Faculdade/Compiladores/t6/itinerario-viagem/target/generated-sources/antlr4/br/ufscar/dc/compiladores/itinerarioViagem/itinerarioViagemLexer.java
+/home/caio/Faculdade/Compiladores/t6/itinerario-viagem/target/generated-sources/antlr4/br/ufscar/dc/compiladores/itinerarioViagem/itinerarioViagemVisitor.java

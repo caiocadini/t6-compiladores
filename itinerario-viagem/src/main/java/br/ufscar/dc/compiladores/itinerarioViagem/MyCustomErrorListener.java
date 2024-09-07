@@ -20,6 +20,10 @@ public class MyCustomErrorListener implements ANTLRErrorListener {
         this.errou = false;
         this.pw = pw;
     }
+
+    public boolean Errou(){
+        return errou;
+    }
     @Override
     public void	reportAmbiguity(Parser recognizer, DFA dfa, int startIndex, int stopIndex, boolean exact, BitSet ambigAlts, ATNConfigSet configs) {
         // Não será necessário para o T2, pode deixar vazio

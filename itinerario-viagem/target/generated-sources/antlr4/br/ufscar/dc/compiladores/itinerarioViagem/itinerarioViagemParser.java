@@ -19,9 +19,9 @@ public class itinerarioViagemParser extends Parser {
 	public static final int
 		T__0=1, VIAGEM=2, HOSPEDAGEM=3, TRANSPORTE=4, ATIVIDADES=5, TIPO=6, NOME=7, 
 		CHECK_IN=8, CHECK_OUT=9, DATA_INICIO=10, DATA_FIM=11, DESTINO=12, COMPANHIA=13, 
-		DIA=14, ATIVIDADE=15, LOCAL=16, HORARIO=17, STRING=18, DIA_MES=19, ANO=20, 
-		TEMPO=21, DELIM=22, TRACO=23, ABRECHAVE=24, FECHACHAVE=25, COMMA=26, WS=27, 
-		COMMENT=28, STRING_NAO_FECHADA=29, SIMBOLO_NAO_ENCONTRADO=30;
+		DIA=14, ATIVIDADE=15, LOCAL=16, HORARIO=17, DURACAO=18, STRING=19, DIA_MES=20, 
+		ANO=21, TEMPO=22, DELIM=23, TRACO=24, ABRECHAVE=25, FECHACHAVE=26, COMMA=27, 
+		WS=28, COMMENT=29, STRING_NAO_FECHADA=30, SIMBOLO_NAO_ENCONTRADO=31;
 	public static final int
 		RULE_itinerario = 0, RULE_data = 1, RULE_viagem_info = 2, RULE_hospedagem_info = 3, 
 		RULE_transporte_info = 4, RULE_atividades_info = 5, RULE_atividade_list = 6, 
@@ -39,7 +39,7 @@ public class itinerarioViagemParser extends Parser {
 			null, "'/'", "'viagem'", "'hospedagem'", "'transporte'", "'atividades'", 
 			"'tipo'", "'nome'", "'check_in'", "'check_out'", "'data_inicio'", "'data_fim'", 
 			"'destino'", "'companhia'", "'dia'", "'atividade'", "'local'", "'horario'", 
-			null, null, null, null, "':'", "'-'", "'{'", "'}'", "','"
+			"'duracao'", null, null, null, null, "':'", "'-'", "'{'", "'}'", "','"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
@@ -47,9 +47,9 @@ public class itinerarioViagemParser extends Parser {
 		return new String[] {
 			null, null, "VIAGEM", "HOSPEDAGEM", "TRANSPORTE", "ATIVIDADES", "TIPO", 
 			"NOME", "CHECK_IN", "CHECK_OUT", "DATA_INICIO", "DATA_FIM", "DESTINO", 
-			"COMPANHIA", "DIA", "ATIVIDADE", "LOCAL", "HORARIO", "STRING", "DIA_MES", 
-			"ANO", "TEMPO", "DELIM", "TRACO", "ABRECHAVE", "FECHACHAVE", "COMMA", 
-			"WS", "COMMENT", "STRING_NAO_FECHADA", "SIMBOLO_NAO_ENCONTRADO"
+			"COMPANHIA", "DIA", "ATIVIDADE", "LOCAL", "HORARIO", "DURACAO", "STRING", 
+			"DIA_MES", "ANO", "TEMPO", "DELIM", "TRACO", "ABRECHAVE", "FECHACHAVE", 
+			"COMMA", "WS", "COMMENT", "STRING_NAO_FECHADA", "SIMBOLO_NAO_ENCONTRADO"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -133,6 +133,11 @@ public class itinerarioViagemParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof itinerarioViagemListener ) ((itinerarioViagemListener)listener).exitItinerario(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof itinerarioViagemVisitor ) return ((itinerarioViagemVisitor<? extends T>)visitor).visitItinerario(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ItinerarioContext itinerario() throws RecognitionException {
@@ -188,6 +193,11 @@ public class itinerarioViagemParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof itinerarioViagemListener ) ((itinerarioViagemListener)listener).exitData(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof itinerarioViagemVisitor ) return ((itinerarioViagemVisitor<? extends T>)visitor).visitData(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -247,6 +257,11 @@ public class itinerarioViagemParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof itinerarioViagemListener ) ((itinerarioViagemListener)listener).exitViagem_info(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof itinerarioViagemVisitor ) return ((itinerarioViagemVisitor<? extends T>)visitor).visitViagem_info(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -321,6 +336,11 @@ public class itinerarioViagemParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof itinerarioViagemListener ) ((itinerarioViagemListener)listener).exitHospedagem_info(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof itinerarioViagemVisitor ) return ((itinerarioViagemVisitor<? extends T>)visitor).visitHospedagem_info(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -400,6 +420,11 @@ public class itinerarioViagemParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof itinerarioViagemListener ) ((itinerarioViagemListener)listener).exitTransporte_info(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof itinerarioViagemVisitor ) return ((itinerarioViagemVisitor<? extends T>)visitor).visitTransporte_info(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final Transporte_infoContext transporte_info() throws RecognitionException {
@@ -459,6 +484,11 @@ public class itinerarioViagemParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof itinerarioViagemListener ) ((itinerarioViagemListener)listener).exitAtividades_info(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof itinerarioViagemVisitor ) return ((itinerarioViagemVisitor<? extends T>)visitor).visitAtividades_info(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final Atividades_infoContext atividades_info() throws RecognitionException {
@@ -507,6 +537,11 @@ public class itinerarioViagemParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof itinerarioViagemListener ) ((itinerarioViagemListener)listener).exitAtividade_list(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof itinerarioViagemVisitor ) return ((itinerarioViagemVisitor<? extends T>)visitor).visitAtividade_list(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -561,7 +596,7 @@ public class itinerarioViagemParser extends Parser {
 			return getToken(itinerarioViagemParser.STRING, i);
 		}
 		public TerminalNode LOCAL() { return getToken(itinerarioViagemParser.LOCAL, 0); }
-		public TerminalNode HORARIO() { return getToken(itinerarioViagemParser.HORARIO, 0); }
+		public TerminalNode DURACAO() { return getToken(itinerarioViagemParser.DURACAO, 0); }
 		public TerminalNode TEMPO() { return getToken(itinerarioViagemParser.TEMPO, 0); }
 		public TerminalNode FECHACHAVE() { return getToken(itinerarioViagemParser.FECHACHAVE, 0); }
 		public Atividade_itemContext(ParserRuleContext parent, int invokingState) {
@@ -575,6 +610,11 @@ public class itinerarioViagemParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof itinerarioViagemListener ) ((itinerarioViagemListener)listener).exitAtividade_item(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof itinerarioViagemVisitor ) return ((itinerarioViagemVisitor<? extends T>)visitor).visitAtividade_item(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -605,7 +645,7 @@ public class itinerarioViagemParser extends Parser {
 			setState(86);
 			match(STRING);
 			setState(87);
-			match(HORARIO);
+			match(DURACAO);
 			setState(88);
 			match(DELIM);
 			setState(89);
@@ -626,7 +666,7 @@ public class itinerarioViagemParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001\u001e]\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0004\u0001\u001f]\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
 		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002"+
 		"\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002\u0007\u0007\u0007\u0001"+
 		"\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0001"+
@@ -646,36 +686,36 @@ public class itinerarioViagemParser extends Parser {
 		"\u0002\u0019\u0001\u0000\u0000\u0000\u0004\u001f\u0001\u0000\u0000\u0000"+
 		"\u0006)\u0001\u0000\u0000\u0000\b9\u0001\u0000\u0000\u0000\nC\u0001\u0000"+
 		"\u0000\u0000\fI\u0001\u0000\u0000\u0000\u000eM\u0001\u0000\u0000\u0000"+
-		"\u0010\u0011\u0005\u0002\u0000\u0000\u0011\u0012\u0005\u0012\u0000\u0000"+
-		"\u0012\u0013\u0005\u0018\u0000\u0000\u0013\u0014\u0003\u0004\u0002\u0000"+
+		"\u0010\u0011\u0005\u0002\u0000\u0000\u0011\u0012\u0005\u0013\u0000\u0000"+
+		"\u0012\u0013\u0005\u0019\u0000\u0000\u0013\u0014\u0003\u0004\u0002\u0000"+
 		"\u0014\u0015\u0003\u0006\u0003\u0000\u0015\u0016\u0003\b\u0004\u0000\u0016"+
-		"\u0017\u0003\n\u0005\u0000\u0017\u0018\u0005\u0019\u0000\u0000\u0018\u0001"+
-		"\u0001\u0000\u0000\u0000\u0019\u001a\u0005\u0013\u0000\u0000\u001a\u001b"+
-		"\u0005\u0001\u0000\u0000\u001b\u001c\u0005\u0013\u0000\u0000\u001c\u001d"+
-		"\u0005\u0001\u0000\u0000\u001d\u001e\u0005\u0014\u0000\u0000\u001e\u0003"+
-		"\u0001\u0000\u0000\u0000\u001f \u0005\n\u0000\u0000 !\u0005\u0016\u0000"+
-		"\u0000!\"\u0003\u0002\u0001\u0000\"#\u0005\u000b\u0000\u0000#$\u0005\u0016"+
+		"\u0017\u0003\n\u0005\u0000\u0017\u0018\u0005\u001a\u0000\u0000\u0018\u0001"+
+		"\u0001\u0000\u0000\u0000\u0019\u001a\u0005\u0014\u0000\u0000\u001a\u001b"+
+		"\u0005\u0001\u0000\u0000\u001b\u001c\u0005\u0014\u0000\u0000\u001c\u001d"+
+		"\u0005\u0001\u0000\u0000\u001d\u001e\u0005\u0015\u0000\u0000\u001e\u0003"+
+		"\u0001\u0000\u0000\u0000\u001f \u0005\n\u0000\u0000 !\u0005\u0017\u0000"+
+		"\u0000!\"\u0003\u0002\u0001\u0000\"#\u0005\u000b\u0000\u0000#$\u0005\u0017"+
 		"\u0000\u0000$%\u0003\u0002\u0001\u0000%&\u0005\f\u0000\u0000&\'\u0005"+
-		"\u0016\u0000\u0000\'(\u0005\u0012\u0000\u0000(\u0005\u0001\u0000\u0000"+
-		"\u0000)*\u0005\u0003\u0000\u0000*+\u0005\u0018\u0000\u0000+,\u0005\u0006"+
-		"\u0000\u0000,-\u0005\u0016\u0000\u0000-.\u0005\u0012\u0000\u0000./\u0005"+
-		"\u0007\u0000\u0000/0\u0005\u0016\u0000\u000001\u0005\u0012\u0000\u0000"+
-		"12\u0005\b\u0000\u000023\u0005\u0016\u0000\u000034\u0003\u0002\u0001\u0000"+
-		"45\u0005\t\u0000\u000056\u0005\u0016\u0000\u000067\u0003\u0002\u0001\u0000"+
-		"78\u0005\u0019\u0000\u00008\u0007\u0001\u0000\u0000\u00009:\u0005\u0004"+
-		"\u0000\u0000:;\u0005\u0018\u0000\u0000;<\u0005\u0006\u0000\u0000<=\u0005"+
-		"\u0016\u0000\u0000=>\u0005\u0012\u0000\u0000>?\u0005\r\u0000\u0000?@\u0005"+
-		"\u0016\u0000\u0000@A\u0005\u0012\u0000\u0000AB\u0005\u0019\u0000\u0000"+
-		"B\t\u0001\u0000\u0000\u0000CD\u0005\u0005\u0000\u0000DE\u0005\u0018\u0000"+
-		"\u0000EF\u0003\f\u0006\u0000FG\u0005\u0019\u0000\u0000G\u000b\u0001\u0000"+
+		"\u0017\u0000\u0000\'(\u0005\u0013\u0000\u0000(\u0005\u0001\u0000\u0000"+
+		"\u0000)*\u0005\u0003\u0000\u0000*+\u0005\u0019\u0000\u0000+,\u0005\u0006"+
+		"\u0000\u0000,-\u0005\u0017\u0000\u0000-.\u0005\u0013\u0000\u0000./\u0005"+
+		"\u0007\u0000\u0000/0\u0005\u0017\u0000\u000001\u0005\u0013\u0000\u0000"+
+		"12\u0005\b\u0000\u000023\u0005\u0017\u0000\u000034\u0003\u0002\u0001\u0000"+
+		"45\u0005\t\u0000\u000056\u0005\u0017\u0000\u000067\u0003\u0002\u0001\u0000"+
+		"78\u0005\u001a\u0000\u00008\u0007\u0001\u0000\u0000\u00009:\u0005\u0004"+
+		"\u0000\u0000:;\u0005\u0019\u0000\u0000;<\u0005\u0006\u0000\u0000<=\u0005"+
+		"\u0017\u0000\u0000=>\u0005\u0013\u0000\u0000>?\u0005\r\u0000\u0000?@\u0005"+
+		"\u0017\u0000\u0000@A\u0005\u0013\u0000\u0000AB\u0005\u001a\u0000\u0000"+
+		"B\t\u0001\u0000\u0000\u0000CD\u0005\u0005\u0000\u0000DE\u0005\u0019\u0000"+
+		"\u0000EF\u0003\f\u0006\u0000FG\u0005\u001a\u0000\u0000G\u000b\u0001\u0000"+
 		"\u0000\u0000HJ\u0003\u000e\u0007\u0000IH\u0001\u0000\u0000\u0000JK\u0001"+
 		"\u0000\u0000\u0000KI\u0001\u0000\u0000\u0000KL\u0001\u0000\u0000\u0000"+
-		"L\r\u0001\u0000\u0000\u0000MN\u0005\u0018\u0000\u0000NO\u0005\u000e\u0000"+
-		"\u0000OP\u0005\u0016\u0000\u0000PQ\u0003\u0002\u0001\u0000QR\u0005\u000f"+
-		"\u0000\u0000RS\u0005\u0016\u0000\u0000ST\u0005\u0012\u0000\u0000TU\u0005"+
-		"\u0010\u0000\u0000UV\u0005\u0016\u0000\u0000VW\u0005\u0012\u0000\u0000"+
-		"WX\u0005\u0011\u0000\u0000XY\u0005\u0016\u0000\u0000YZ\u0005\u0015\u0000"+
-		"\u0000Z[\u0005\u0019\u0000\u0000[\u000f\u0001\u0000\u0000\u0000\u0001"+
+		"L\r\u0001\u0000\u0000\u0000MN\u0005\u0019\u0000\u0000NO\u0005\u000e\u0000"+
+		"\u0000OP\u0005\u0017\u0000\u0000PQ\u0003\u0002\u0001\u0000QR\u0005\u000f"+
+		"\u0000\u0000RS\u0005\u0017\u0000\u0000ST\u0005\u0013\u0000\u0000TU\u0005"+
+		"\u0010\u0000\u0000UV\u0005\u0017\u0000\u0000VW\u0005\u0013\u0000\u0000"+
+		"WX\u0005\u0012\u0000\u0000XY\u0005\u0017\u0000\u0000YZ\u0005\u0016\u0000"+
+		"\u0000Z[\u0005\u001a\u0000\u0000[\u000f\u0001\u0000\u0000\u0000\u0001"+
 		"K";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());

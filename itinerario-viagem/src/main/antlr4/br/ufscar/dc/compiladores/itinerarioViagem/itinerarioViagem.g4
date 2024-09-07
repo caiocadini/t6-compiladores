@@ -17,6 +17,7 @@ DIA: 'dia';
 ATIVIDADE: 'atividade';
 LOCAL: 'local';
 HORARIO: 'horario';
+DURACAO: 'duracao';
 
 // Identificadores e Literais
 STRING: '"' ( '\\' . | ~[\\"\r\n] )* '"';  
@@ -75,5 +76,5 @@ atividade_list
     ;
 
 atividade_item
-    : ABRECHAVE DIA DELIM data ATIVIDADE DELIM STRING LOCAL DELIM STRING HORARIO DELIM TEMPO FECHACHAVE
+    : ABRECHAVE DIA DELIM data ATIVIDADE DELIM STRING LOCAL DELIM STRING DURACAO DELIM TEMPO FECHACHAVE
     ;

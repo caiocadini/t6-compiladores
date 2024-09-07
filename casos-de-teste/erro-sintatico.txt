@@ -19,13 +19,13 @@ viagem "Viagem para a Amazônia" {
             dia: 03/07/2024
             atividade: "Passeio de barco"
             local: "Rio Negro"
-            horario: 14:00
+            duracao: 14:00
         }
         {
             dia: 04/07/2024
             atividade: "Caminhada na selva"
             local: "Selva Amazônica"
-            horario: 08:00
+            duracao: 08:00
     }
     }
 }

@@ -20,7 +20,7 @@ viagem "Viagem para o Rio" {
             dia: 02/06/2024
             atividade: "Visita ao Cristo Redentor"
             local: "Cristo Redentor"
-            horario: 10:00
+            duracao: 10:00
         }
     }
 }
