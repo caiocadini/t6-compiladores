@@ -16,11 +16,41 @@ viagem "Viagem para Florianópolis" {
     }
 
     atividades {
-        { dia: 15/09/2024 atividade: "Passeio na Praia" local: "Praia dos Ingleses" duracao: 03:00 }
-        { dia: 16/09/2024 atividade: "Visita ao Centro Histórico" local: "Centro" duracao: 04:00 }
-        { dia: 16/09/2024 atividade: "Jantar em Restaurante" local: "Restaurante La Trattoria" duracao: 02:00 }
-        { dia: 17/09/2024 atividade: "Trilha Ecológica" local: "Parque Nacional" duracao: 05:00 }
-        { dia: 18/09/2024 atividade: "Visita ao Mercado Público" local: "Mercado Público" duracao: 02:00 }
-        { dia: 19/09/2024 atividade: "Tour de Barco" local: "Baía Norte" duracao: 06:00 }
+        { 
+            dia: 15/09/2024 
+            atividade: "Passeio na Praia" 
+            local: "Praia dos Ingleses" 
+            duracao: 03:00 
+        }
+        { 
+            dia: 16/09/2024 
+            atividade: "Visita ao Centro Histórico" 
+            local: "Centro" 
+            duracao: 04:00 
+        }
+        { 
+            dia: 16/09/2024 
+            atividade: "Jantar em Restaurante" 
+            local: "Restaurante La Trattoria" 
+            duracao: 02:00 
+        }
+        { 
+            dia: 17/09/2024 
+            atividade: "Trilha Ecológica" 
+            local: "Parque Nacional" 
+            duracao: 05:00 
+        }
+        { 
+            dia: 18/09/2024 
+            atividade: "Visita ao Mercado Público" 
+            local: "Mercado Público" 
+            duracao: 02:00 
+        }
+        { 
+            dia: 19/09/2024 
+            atividade: "Tour de Barco" 
+            local: "Baía Norte" 
+            duracao: 06:00 
+        }
     }
 }
