@@ -24,7 +24,7 @@ public class App {
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             itinerarioViagemParser parser = new itinerarioViagemParser(tokens);
 
-            PrintWriter pw = new PrintWriter(arquivoSaida);
+            PrintWriter pw = new PrintWriter("index.html");
             //Criação de classe personalizada para obter erros customizados do Parser
             MyCustomErrorListener mcel = new MyCustomErrorListener(pw);
             parser.removeErrorListeners();
@@ -36,7 +36,13 @@ public class App {
                 ItinerarioViagemSemantico semantico = new ItinerarioViagemSemantico();
                 semantico.visitItinerario(ctx);
                 List<String> errosSemanticos = ItinerarioViagemSemanticoUtils.errosSemanticos;
-                if (!errosSemanticos.isEmpty()) {
+                if (errosSemanticos.isEmpty()) {
+                    // Gerar código HTML
+                    ItinerarioToHtml gerador = new ItinerarioToHtml();
+                    gerador.visitItinerario(ctx);
+                    pw.print(gerador.finalCode.toString());
+                } else {
+                    // Escrever erros semânticos no arquivo de saída
                     for (String erro : errosSemanticos) {
                         pw.println(erro);
                     }
