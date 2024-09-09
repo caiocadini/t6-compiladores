@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.List;
 import java.util.ArrayList;
 
+//Tabela de símbolos específica para fazer o controle da duração das atividades em um dia
 public class TabelaDeSimbolos {
     private Map<String, Integer> tabela;
     

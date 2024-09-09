@@ -9,11 +9,13 @@ public class ItinerarioToHtml extends itinerarioViagemBaseVisitor<Object> {
     public StringBuilder finalCode;
     private Map<String, List<String>> atividadesPorDia;
 
+    //Construtor
     public ItinerarioToHtml() {
         finalCode = new StringBuilder();
         atividadesPorDia = new HashMap<>();
     }
 
+    //Declaração inicial da página, adiciona headers, estilos, começo do corpo e o título de acordo com o título no algoritmo
     @Override
     public Object visitItinerario(itinerarioViagemParser.ItinerarioContext ctx) {
         finalCode.append("<!DOCTYPE html>\n");
@@ -37,6 +39,7 @@ public class ItinerarioToHtml extends itinerarioViagemBaseVisitor<Object> {
         return super.visitItinerario(ctx);
     }
 
+    //Define as informações da viagem no arquivo final
     @Override
     public Object visitViagem_info(itinerarioViagemParser.Viagem_infoContext ctx) {
         finalCode.append("<h2>Informações da Viagem</h2>\n");
@@ -48,6 +51,7 @@ public class ItinerarioToHtml extends itinerarioViagemBaseVisitor<Object> {
         return super.visitViagem_info(ctx);
     }
 
+    //Anota informações da Hospedagem
     @Override
     public Object visitHospedagem_info(itinerarioViagemParser.Hospedagem_infoContext ctx) {
         finalCode.append("<h2>Informações sobre a Hospedagem</h2>\n");
@@ -60,6 +64,7 @@ public class ItinerarioToHtml extends itinerarioViagemBaseVisitor<Object> {
         return super.visitHospedagem_info(ctx);
     }
 
+    //Anota informações de transporte
     @Override
     public Object visitTransporte_info(itinerarioViagemParser.Transporte_infoContext ctx) {
         finalCode.append("<h2>Informações de Transporte</h2>\n");
@@ -70,11 +75,13 @@ public class ItinerarioToHtml extends itinerarioViagemBaseVisitor<Object> {
         return super.visitTransporte_info(ctx);
     }
 
+    //Gera informações das atividades que podem ser realizadas na viagem
     @Override
     public Object visitAtividades_info(itinerarioViagemParser.Atividades_infoContext ctx) {
         finalCode.append("<h2>Atividades</h2>\n");
         finalCode.append("<ul>\n");
 
+        //Agrupamento das viagens de acordo com o dia de cada uma
         for (itinerarioViagemParser.Atividade_itemContext ai : ctx.atividade_list().atividade_item()) {
             String dia = removeQuotes(ai.data().getText());
             String atividade = removeQuotes(ai.STRING(0).getText());
@@ -86,13 +93,14 @@ public class ItinerarioToHtml extends itinerarioViagemBaseVisitor<Object> {
                                    "<p><strong>Local:</strong> " + local + "</p>\n" +
                                    "<p><strong>Duração:</strong> " + duracao + "</p>\n" +
                                    "</div>\n";
-
+            //Se o dia ainda não está presente no hash map de dias, adiciona-o
             if (!atividadesPorDia.containsKey(dia)) {
                 atividadesPorDia.put(dia, new ArrayList<String>());
             }
             atividadesPorDia.get(dia).add(atividadeInfo);
         }
 
+        //Gera as atividades de acordo commo elas estão agrupadas por dias
         for (Map.Entry<String, List<String>> entry : atividadesPorDia.entrySet()) {
             String dia = entry.getKey();
             List<String> atividades = entry.getValue();
