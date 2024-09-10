@@ -1,5 +1,5 @@
 grammar itinerarioViagem;
-
+/*----------------------------- ESTRUTURA LÉXICA ----------------------- */
 // Palavras-chave
 VIAGEM: 'viagem';
 HOSPEDAGEM: 'hospedagem';
@@ -36,10 +36,10 @@ COMMA: ',';
 // Espaços em branco e comentários
 WS: [ \t\r\n]+ -> skip;
 COMMENT: '//' .*? '\n' -> skip;
-//Erros
+//Erros Léxicos
 STRING_NAO_FECHADA   : '"' ( ~('\n'))*?;
 SIMBOLO_NAO_ENCONTRADO: .;
-
+/* -------------------- ESTRUTURA SINTÁTICA ------------------------- */
 // Regra principal para a viagem
 itinerario: 'viagem' STRING ABRECHAVE viagem_info hospedagem_info transporte_info atividades_info FECHACHAVE;
 
