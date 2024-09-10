@@ -179,3 +179,6 @@ Isso cria o arquivo jar para execução na paste target cuja execução pode ser
 ```
 java -jar <caminho para o arquivo expr-parser-1.0-SNAPSHOT-jar-with-dependencies> <caminho para o arquivo txt de entrada>
 ```
+### Sobre o input-output
+
+Para o input basta colocar o caminho para o arquivo .txt com o algoritmo que será gerado o output no formato de um arquivo index.html dentro da pasta "itinerario-viagem".
