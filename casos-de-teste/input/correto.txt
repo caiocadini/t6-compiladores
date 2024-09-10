@@ -2,7 +2,6 @@ viagem "Viagem para Florianópolis" {
     data_inicio: 15/09/2024
     data_fim: 20/09/2024
     destino: "Florianópolis"
-
     hospedagem {
         tipo: "Hotel"
         nome: "Hotel Atlântico"
@@ -29,12 +28,6 @@ viagem "Viagem para Florianópolis" {
             duracao: 04:00 
         }
         { 
-            dia: 16/09/2024 
-            atividade: "Jantar em Restaurante" 
-            local: "Restaurante La Trattoria" 
-            duracao: 02:00 
-        }
-        { 
             dia: 17/09/2024 
             atividade: "Trilha Ecológica" 
             local: "Parque Nacional" 
@@ -51,6 +44,12 @@ viagem "Viagem para Florianópolis" {
             atividade: "Tour de Barco" 
             local: "Baía Norte" 
             duracao: 06:00 
+        }
+        { 
+            dia: 16/09/2024 
+            atividade: "Jantar em Restaurante" 
+            local: "Restaurante La Trattoria" 
+            duracao: 02:00 
         }
     }
 }
